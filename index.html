@@ -14,28 +14,26 @@
     <header>
       <div class="header-container">
         <div class="brand">
-          <h1>Student Restaurants in Finland</h1>
-          <p>Campus cafeterias, daily and weekly menus, and locations</p>
+          <h1>Student Restaurants</h1>
         </div>
         <div id="auth-controls" class="auth-bar">
-          <!-- Injected dynamically: Login/Register buttons or User Badge -->
         </div>
       </div>
     </header>
 
     <main>
-      <!-- Profile & Favorite -->
       <section id="user-profile-section" class="profile-card hidden">
+        <h2>Profile</h2>
         <div class="profile-info">
           <img
             id="user-avatar"
-            src="https://place-hold.it/80x80"
+            src="https://via.placeholder.com/80"
             alt="Avatar"
           />
           <div>
             <h3 id="profile-username">User</h3>
             <p id="profile-email">email@example.com</p>
-            <p id="profile-fav">Favorite restaurant:<em>None selected</em></p>
+            <p id="profile-fav">Favorite: <em>None selected</em></p>
           </div>
         </div>
         <div class="avatar-upload-box">
@@ -45,61 +43,65 @@
         </div>
       </section>
 
-      <!-- Filter & Search -->
-      <section class="controls-section">
-        <div class="control-group">
-          <label for="city-filter">Filter by City:</label>
-          <select id="city-filter">
-            <option value="all">All Cities</option>
-          </select>
-        </div>
+      <div class="upper-split">
+        <aside class="controls-sidebar">
+          <h2>Filter or Search</h2>
 
-        <div class="control-group">
-          <label for="provider-filter">Filter by Provider:</label>
-          <select id="provider-filter">
-            <option value="all">All providers</option>
-          </select>
-        </div>
+          <div class="control-group">
+            <label for="city-filter">City:</label>
+            <select id="city-filter">
+              <option value="all">All</option>
+            </select>
+          </div>
 
-        <div class="control-group">
-          <label for="search-input">Search:</label>
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search by name or address..."
-          />
-        </div>
+          <div class="control-group">
+            <label for="provider-filter">Provider:</label>
+            <select id="provider-filter">
+              <option value="all">All</option>
+            </select>
+          </div>
 
-        <button id="locate-btn" type="button">Near me</button>
-      </section>
+          <div class="control-group">
+            <label for="search-input">Search:</label>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search by name or address..."
+            />
+          </div>
 
-      <!-- Leaflet Map -->
-      <section id="map-container">
-        <div id="map"></div>
-      </section>
+          <button id="locate-btn" type="button">Near me</button>
+        </aside>
 
-      <!-- Restaurants Table -->
-      <section class="list-section">
-        <h2>Available Restaurants</h2>
-        <div class="table-wrapper">
-          <table id="restaurants-table">
-            <thead>
-              <tr>
-                <th>Fav</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>Provider</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="restaurant-rows"></tbody>
-          </table>
+        <section class="list-section">
+          <h2>Available Restaurants</h2>
+          <div class="table-wrapper">
+            <table id="restaurants-table">
+              <thead>
+                <tr>
+                  <th>Fav</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>City</th>
+                  <th>Provider</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="restaurant-rows">
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <section class="map-section">
+        <h2>Campus Cafeterias</h2>
+        <div id="map-container">
+          <div id="map"></div>
         </div>
       </section>
     </main>
 
-    <!-- Menu Dialog -->
     <dialog id="menu-modal">
       <div class="modal-header">
         <h3 id="modal-restaurant-name">Menu</h3>
@@ -118,7 +120,6 @@
       </div>
     </dialog>
 
-    <!-- Login or Register Dialog -->
     <dialog id="auth-modal">
       <div class="modal-header">
         <h3 id="auth-modal-title">Sign In</h3>
@@ -147,6 +148,6 @@
     </dialog>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script type="module" src="main.js"></script>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
