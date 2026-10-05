@@ -1,24 +1,41 @@
 # Student Restaurants in Finland
 
-A pure vanilla JavaScript single-page application displaying student campus restaurants across Finland, their daily and weekly menus, geolocation search, and user profile management[cite: 8, 11].
+A modular, responsive web application that displays student cafeterias across Finland, daily and weekly menus, interactive Leaflet mapping, geolocation, and user authentication with favorite restaurant management.
 
-- **Live Application:** [Student Restaurants Live Deployment](https://users.metropolia.fi/~manikg/student-restaurants/)
+---
+
+## Live Deployment & Links
+
+- **Live Dem:** [https://users.metropolia.fi/~manikg/student-restaurants/](https://users.metropolia.fi/~manikg/student-restaurants/)
+- **GitHub Repo:** [https://github.com/ManikG92/student-restaurants](https://github.com/ManikG92/student-restaurants)
 
 ---
 
 ## Features
 
-- **Restaurant Directory:** Fetches and displays all available student cafeterias from the REST API[cite: 8, 11].
-- **Daily & Weekly Menus:** Native `<dialog>` modal showing daily courses and full weekly menus per restaurant[cite: 8, 11].
-- **Interactive Map:** Leaflet.js map with markers corresponding to cafeteria coordinates[cite: 8, 18].
-- **Search & Filters:** Real-time filtering by city, service provider (Sodexo, Compass Group), and text search[cite: 8, 18].
-- **Nearest Restaurant Finder:** Utilizes the Geolocation API to calculate distances (Haversine formula) and automatically highlights the closest restaurant[cite: 8].
-- **Authentication & User Profile:** User login, persistent session with JWT bearer tokens, favorite restaurant selection, and profile picture avatar uploads[cite: 8, 12, 28, 30].
+- **Modular ES6 Architecture:** Clean separation of concerns with native ES modules (`api.js`, `map.js`, `ui.js`, `main.js`).
+- **Filtering & Search:** Real-time search by name/address and dropdown filters for city and provider (e.g., Sodexo, Compass Group).
+- **Interactive Mapping (Leaflet.js):** Displays cafeteria markers with custom popups containing names and provider details.
+- **Geolocation & Nearest Finder:** Uses the browser Geolocation API and the Haversine distance formula to identify and highlight the closest campus cafeteria.
+- **Menu Dialogs:** Native `<dialog>` modal showing daily courses and full weekly menus fetched dynamically from the REST API.
+- **User Authentication & Profile:**
+  - JWT-based user registration and login.
+  - Persistent favorite restaurant management.
+  - Avatar image upload via `multipart/form-data`.
+- **Standards-Compliant:** 100% valid HTML5 and CSS verified with official W3C validators.
 
 ---
 
-## Technical Specifications
+## Project Structure
 
-- **Front-end:** Pure Vanilla JavaScript (ES6+), HTML5, and custom modern CSS (strictly no frameworks or libraries such as React, Bootstrap, or jQuery)[cite: 11].
-- **Map Integration:** Leaflet.js[cite: 8].
-- **Hosting:** Metropolia WebDisk (`shell.metropolia.fi`)[cite: 11].
+```text
+student-restaurants/
+├── index.html          # Semantic HTML5 layout and modal dialogs
+├── style.css           # Responsive modern CSS layout and design tokens
+├── README.md           # Project documentation and deployment guide
+└── src/
+    ├── api.js          # REST API endpoints (restaurants, menus, auth, avatar)
+    ├── map.js          # Leaflet map initialization, markers, and distance calculations
+    ├── ui.js           # Dynamic DOM rendering (tables, filters, profile, menus)
+    └── main.js         # Application bootstrap and event coordination
+```
